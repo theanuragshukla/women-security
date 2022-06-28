@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Signup | G&GSOS - rescue and get rescued</title>
+		<link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
+		<link rel="stylesheet" href="/static/css/login.css">
+		<link rel="stylesheet" href="/static/css/signup.css">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	</head>
+	<body>
+		<div class="super ">
+
+			<!-- Top NavBar -->
+
+			<nav>
+				<p onclick="(()=>{
+				   location.href='/'
+				   })()"><span>G&G</span>SOS</p>
+			</nav>
+			<nav>
+				<p class="desc">Send alert to friends and ask for backup.<br>Never <span>gonna</span> give <span>you</span> Up</p>
+			</nav>
+			<div class="flx">
+
+				<!-- Input form Starts  -->
+
+				<div class="main">
+					<div class="heading">
+						<h1>Create an Account</h1>
+					</div>
+
+					<!-- Error Box -->
+
+					<div id="error" class="error">
+					</div>
+					<div id="slider" class="slider">
+						<div id="inpDiv1" class="inpdiv1 inpDiv">
+
+							<!-- First Name  -->
+
+							<div class="inpSuper ">
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+										<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+									</svg>
+								</div>
+								<input class="inp" autocomplete="off"  id="fname"  type="text" placeholder="firstname">
+							</div>
+
+							<!-- Last Name -->
+
+							<div class="inpSuper ">
+								<div class="icon">
+
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+										<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+									</svg>
+								</div>
+								<input class="inp" autocomplete="off"  id="lname" type="text"  placeholder="lastname">
+							</div>
+						</div>
+						<div id="inpDiv2" class="inpdiv2 inpDiv">	
+							<!-- Email Input  -->
+							<div class="inpSuper">
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+										<path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+									</svg>
+								</div>
+								<input class="inp" autocomplete="off"  id="email" type="email" placeholder="email">
+							</div>
+
+							<!-- Password Input  -->
+
+							<div class="inpSuper">
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key-fill" viewBox="0 0 16 16">
+										<path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+									</svg>
+								</div>
+								<input id="pass" class="inp" autocomplete="off"  type="password" placeholder="password">
+							</div>
+						</div>
+						<div id="inpDiv3" class="inpdiv3 inpDiv">
+
+							<!-- Username Input  -->
+
+							<div class="inpSuper ">
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+										<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+									</svg>
+								</div>
+								<input id="user" class="inp" autocomplete="off"  type="text" placeholder="username">
+							</div>
+
+							<!-- Referral Key Input  -->
+
+							<div class="inpSuper">
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key-fill" viewBox="0 0 16 16">
+										<path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+									</svg>
+								</div>
+								<input id="key" class="inp" autocomplete="off"  type="text" placeholder="referral code">
+							</div>
+						</div>
+					</div>
+					<div class="btnBox">
+						<button id="btnLeft" onclick="slideInp(-1)">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+								<path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+							</svg>
+						</button>
+						<button id="btnRight" onclick="slideInp(1)">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+								<path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+							</svg>
+						</button>
+						<button onclick="signup()" id="signup">signup</button>
+					</div>
+					<p class="otherLink"><a href="/">already a user ? login</a></p>
+				</div>
+
+				<!-- Instructions for Username and Password  -->
+
+				<div class="main main2">
+					<div class="heading">
+						<h1>instructions</h1>
+					</div>
+					<div class="instructions">
+						<h2>Username can have:</h2>				
+						<p><span># </span>lowercase letters (a-z)</p>
+						<p><span># </span> numeric digits (0-9)</p>
+						<p> <span># </span>6-16 characters</p>
+						<h2>Password must have:</h2>
+						<p><span># </span> at least 8 characters</p>
+						<p> <span># </span>at least 1 UpperCase letter (A-Z)</p>
+						<p> <span># </span>at least 1 lowercase letter (a-z)</p>
+						<p> <span># </span>at least 1 numeric digit (0-9)</p>
+						<p> <span># </span>at least one special character</p>
+						<h2>Referral Code:</h2>
+						<p> <span># </span>itssecret</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="/static/js/utils.js"></script>
+		<script src="/static/js/signup.js"></script>
+	</body>
+</html>

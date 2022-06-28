@@ -1,0 +1,328 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: #ababab;
+	font-family: Nunito;
+}
+:root {
+	font-size:16px ;
+}
+body {
+	background-color:#393E46;
+	overflow-x: hidden;
+}
+button:hover,a:hover {
+	cursor: pointer;
+}
+.flex-clm {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;	
+}
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 20px;
+	padding: 0.75rem 5vw;
+}
+nav span {
+	color:red;
+}
+nav p {
+	font-size: 25px;
+	font-weight: 800;
+	cursor: default;
+}
+nav .btn {
+	padding: 0.5rem 1rem;
+	margin: 0 0 0 0.5rem;
+	border-radius: 5px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: 0.2s ease-in-out;
+	font-size: 17px;
+}
+.register {
+	background-color:#222831;
+	color: white;
+	border: 1px solid red;
+	border-radius: 5px;
+}
+.super {
+	width: 100vw;
+	min-height: 100vh;
+	height: auto;
+	padding-bottom: 50px;
+	background-color:#393E46 ;
+}
+.section {
+	width: 100%;
+	min-height: 70px;
+	margin-bottom: 20px;
+	background-color: rgba(255,255,255,0.1);
+	border-radius: 10px;
+	padding: 10px 0 10px 0;
+}
+.hero {
+	height: 100vh;
+	width: 100vw;
+	justify-content: center;
+	margin: 0;
+}
+.sosBox {
+	width: 100%;
+	height:100%;
+	justify-content: center;
+	background-color: rgba(255,255,255,0.0);
+}
+.sosBtn {
+	height: auto;
+	overflow: hidden;
+	width: 100vw;
+}
+.sosBtn>button {
+	outline:none;
+	width: 200px;
+	height: 200px;
+	font-family:'helvetica neue' sans-serif; 
+	font-size:2.5rem;
+	font-weight: 1000;
+	color:hsla(350,0%,100%,1); 
+	text-shadow:-1px -1px 1px hsla(350,0%,0%,0.7),1px 1px 1px hsla(350,0%,100%,0.3);
+	display:block; 
+	margin:40px auto; 
+	padding:23px 37px 25px 35px;
+	cursor:pointer;
+	background-color:hsla(350,80%,10%,1);
+	background-image:linear-gradient(273deg,hsla(350,80%,60%,1) 30%, hsla(350,80%,50%,1) 40%)
+	;
+	border:none; 
+	border-radius:50%;
+	box-shadow:
+	inset 0px 0px 1px 1px hsla(350,80%,30%,0.9),
+	inset 0px 0px 2px 3px hsla(350,80%,50%,0.9),
+	inset 1px 1px 1px 4px hsla(350,80%,100%,0.8),
+	inset 0px 0px 2px 7px hsla(350,80%,60%,0.8),
+	inset 0px 0px 4px 10px hsla(350,80%,50%,0.9),
+	8px 10px 2px 6px hsla(350,80%,20%,0.55),
+	0px 0px 3px 2px hsla(350,80%,40%,0.9),
+	0px 0px 2px 6px hsla(350,80%,50%,0.9),
+	-1px -1px 1px 6px hsla(350,80%,100%,0.9),
+	0px 0px 2px 11px hsla(350,80%,50%,0.9),
+	0px 0px 1px 12px hsla(350,80%,40%,0.9),
+	1px 3px 14px 14px hsla(350,80%,0%,0.4);
+}
+.sosBtn>button:active {
+	color:hsla(350,0%,85%,1); 
+	padding:26px 34px 22px 38px;
+	background-image:
+	linear-gradient(273deg,hsla(350,80%,50%,1) 50%, hsla(350,80%,55%,1) 60%);
+	box-shadow:
+	inset 3px 4px 3px 2px hsla(350,80%,20%,0.55),
+	inset 0px 0px 1px 1px hsla(350,80%,30%,0.9),
+	inset -1px -1px 2px 3px hsla(350,80%,50%,0.9),
+	inset -2px -2px 1px 3px hsla(350,80%,100%,0.8),
+	inset 0px 0px 2px 7px hsla(350,80%,60%,0.8),
+	inset 0px 0px 3px 10px hsla(350,80%,50%,0.9),
+	0px 0px 3px 2px hsla(350,80%,40%,0.9),
+	0px 0px 2px 6px hsla(350,80%,50%,0.9),
+	-1px -1px 1px 6px hsla(350,80%,100%,0.9),
+	0px 0px 2px 11px hsla(350,80%,50%,0.9),
+	0px 0px 1px 12px hsla(350,80%,40%,0.9),
+	1px 3px 14px 14px hsla(350,80%,0%,0.4);
+}
+.sosMsg {
+	width: 90%;
+	min-height: 100px;
+	margin:0 auto 10px auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	max-width: min(100vw,800px);
+	margin:0 auto;
+}
+.sosMsg>input {
+	width: 90%;
+	height: 55px;
+	border-radius: 200vmax;
+	border-width:0 ;
+	text-align: center;
+	font-size: 1rem;
+	background-color: #fff;
+	border: 2px solid #ccc;
+	color: red;
+}
+.heading {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+.heading > h1 {
+	font-size: 1.6rem;
+	font-weight: 800;
+	color: #fff;
+}
+.chatBox {
+	width: 100%;
+	padding:0 20px 0 20px ;
+	max-width: min(100vw,800px);
+	margin:0 auto;
+}
+.inp {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	min-height: 50px;
+	padding: 5px 0;
+}
+.inp > input {
+	width: 100%;
+	height: 50px;
+	color: #0ff;
+	border-radius: 200vmax;
+	border: 2px solid #ababab;
+	font-size: 1rem;
+	padding-left: 10px;
+	background-color: #393E46;
+}
+.inp > input::placeholder {
+	color:#00ADB5;
+}
+.msgs {
+	width: 100%;
+	max-height: 600px;
+	overflow-y: scroll;
+	position: relative;
+	border: 0px solid;
+	border-radius: 10px;
+}
+.msg {
+	display: flex;
+	flex-direction:column ;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 5px;
+	overflow: hidden;
+	word-wrap: break-word;
+	line-height: 120%;	
+	background-color: #222831;
+}
+.sender {
+	font-size: 0.8rem;
+	font-weight: bold;
+	color: #666;
+	padding-bottom: 3px;
+}
+.time {
+	font-size: 0.8rem;
+	font-weight: bold;
+	text-align: right;
+	color: #666;
+}
+
+.msgTxt {
+	font-size: 1rem;
+}
+.tools {
+	width: 100vw;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.tools > div {
+	margin: 10px;
+	border: 2px solid;
+	border-radius:200vmax;
+	padding: 5px;
+	background-color:#fff
+}
+.mic ,.speaker{
+	height: 40px;
+	width: 40px;
+}
+.mic>img,.speaker > img {
+	height: 100%;
+	width: 100%;
+}
+.allUsrsMain{
+	border: 0px solid;
+	border-radius: 10px;
+}
+.allUsrs {
+	padding: 5px;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+}
+.hero p {
+	background-color: #393E46;
+	color: #fff;
+	padding: 5px;
+	font-weight: 800;
+}
+.hero p span {
+	color: red;
+}
+.allUsrs>span {
+	padding: 5px;
+	font-weight: 500;
+}
+.links > nav {
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	flex-wrap: wrap;
+}
+.links button {
+	color: black;
+	margin-top:10px;
+	background-color:transparent ;
+	height: 50px;
+	color:#0ff;
+}
+button>img {
+	width: 100%;
+	height: 100%;
+}
+.skyblue {
+	color: deepskyblue;
+}
+.orange {
+	color:orange;
+}
+.magenta {
+	color: magenta;
+}
+.violet {
+	color: violet;
+}
+.tgreen {
+	color: #68B94E;
+}
+.tred {
+	color: #F472A3;
+}
+.tblue{
+	color: #89A9E8;
+}
+
+.newNot {
+	animation: newNots linear 60 1s ;
+}
+
+@keyframes newNots{
+50%{
+		background-color: #000;
+		transform: scale(1.05);
+	}
+}
+
+

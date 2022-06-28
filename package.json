@@ -1,0 +1,36 @@
+{
+  "name": "devheat_beta_nullpointers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theanuragshukla/Devheat_Beta_nullPointers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theanuragshukla/Devheat_Beta_nullPointers/issues"
+  },
+  "homepage": "https://github.com/theanuragshukla/Devheat_Beta_nullPointers#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "nodemailer": "^6.7.5",
+    "pg": "^8.7.3",
+    "socket.io": "^4.5.1",
+    "some-random-form-validator": "^1.0.1",
+    "telegraf": "^4.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

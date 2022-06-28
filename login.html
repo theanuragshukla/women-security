@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Login | G&GSOS - rescue and get rescued</title>
+		<link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
+		<link rel="stylesheet" href="/static/css/login.css">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	</head>
+	<body>
+		<div class="super">	
+
+			<!-- Start of Top NavBar -->
+
+			<nav>
+				<p onclick="(()=>{
+				   location.href='/'
+				   })()"><span>G&G</span>SOS</p>
+			</nav>
+			<nav>
+				<p class="desc">Send alert to friends and ask for backup.<br>Never <span>gonna</span> give <span>you</span> Up</p>
+			</nav>
+			<div class="flx">
+
+				<!-- Start of Login Form -->
+
+				<div class="main">
+					<div class="heading">
+						<h1>Login</h1>
+					</div>
+					<div id="error" class="error">
+						wrong username or password
+					</div>
+					<div class="inpSuper ">
+						<div class="icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+								<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+							</svg>
+						</div>
+						<!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+						<input style="display: none" type="text" name="fakeusernameremembered" />
+						<input style="display: none" type="password" name="fakepasswordremembered" />
+
+						<input id="user" class="inp" autocomplete="falsgdutdutdtd 4ys us4 u5s d5de" type="text" placeholder="username">
+					</div>
+					<div class="inpSuper">
+						<div class="icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key-fill" viewBox="0 0 16 16">
+								<path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+							</svg>
+						</div>
+						<input id="pass" class="inp" autocomplete="faldtud5ueu5eu5e5u eu5 ese"  type="password" placeholder="password">
+					</div>
+					<button onclick="login(this)">login</button>
+					<p class="otherLink"><a href="/new-user"> new user ? signup</a></p>
+				</div>
+			</div>
+		</div>
+		<script src="/static/js/login.js"></script>
+	</body>
+</html>

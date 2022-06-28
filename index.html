@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
+		<title>Dashboard | G&GSOS - rescue and get rescued</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/static/css/style.css">
+		<link rel="stylesheet" href="/static/css/bg.css">
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/static/js/utils.js"></script>
+	</head>
+	<body>
+		<div class="super flex-clm ">
+
+			<!-- Hero Section  -->
+			
+			<div class="section flex-clm svgBg hero">
+				<div class="sosBox flex-clm">
+					<div class="sosBtn">
+						<button id="bigRed" onclick="sendSOS()">SOS</button>
+					</div>
+					<form class="sosMsg">
+						<input id="sosMsgInp" type="text" placeholder="Emergency message here">
+					</form>
+					<p id="rescueMsg" class=""> <span>###</span>  keep your location <span>ON</span> for your safety <span>###</span></p>
+				</div>
+			</div>
+
+			<!-- Live Web Chat -->
+
+			<div class="section flex-clm ">
+				<div class="chatBox flex-clm">
+					<div class="heading">
+						<h1>live web chat</h1>
+					</div>
+					<div id="msgs" class="msgs"></div>	
+					<div class="inp">
+						<input type="text" id="chatBoxInp" placeholder="Type a message">
+					</div>
+					<div class="tools">
+						<div class="mic" ><img src="/static/img/micMute.svg" onclick="muteOutgoing(this)"/></div>
+						<div class="speaker"><img src="/static/img/sound.svg" onclick="muteIncoming(this)"/></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Online Users Section -->
+
+			<div  class="section allUsrsMain">
+				<div class="heading">
+					<h1>users online</h1>
+				</div>
+				<div id="allUsrs" class="allUsrs"></div>
+			</div>
+
+			<!-- Extra Links Section -->
+
+			<div class="section links">
+				<div class="heading">
+					<h1>Important Links</h1>
+				</div>
+				<nav>
+					<button class="btn" onclick="(()=>{window.open(' https://github.com/theanuragshukla/Devheat_Beta_nullPointers','_blank')})()"> 
+						<img src="/static/img/github.svg" alt="">
+					</button>
+					<button class="btn" onclick="(()=>{window.open('https://github.com/theanuragshukla/Devheat_Beta_nullPointers#FAQ','_blank')})()">
+						<img src="/static/img/questionn.svg" alt="">
+					</button>
+					<button class="btn" onclick="(()=>{window.open('https://t.me/ourgng','_blank')})()">
+						<img src="/static/img/telegram.svg" alt="">
+					</button>
+					<button class="btn" onclick="logout()">Logout</button>
+				</nav>
+			</div>
+		</div>	
+
+		<!-- Bottom Navbar -->
+
+		<nav>
+			<p onclick="(()=>{
+			   location.href='/'
+			   })()"><span>G&G</span>SOS</p>
+			<button onclick="wantToDelete()" class="btn register">Delete Account</button>
+		</nav>
+		<script src="/static/js/script.js"></script>
+	</body>
+</html>
