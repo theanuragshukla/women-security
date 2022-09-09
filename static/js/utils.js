@@ -50,7 +50,7 @@ const validUser=(str)=>{
 /*  Check that a password is valid or not */
 
 const chkPass= (str)=>{
-
+/*
 	var regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 
 	if(regularExpression.test(str)){
@@ -58,6 +58,8 @@ const chkPass= (str)=>{
 	}else{
 		return false
 	}
+	*/
+	return checklen(8,128, str)
 }
 
 /* Check all the properties mentioned above from an Object and return boolean */

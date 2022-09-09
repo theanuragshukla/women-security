@@ -338,14 +338,14 @@ io.on('connection',(socket)=>{
 /* Send Location when Red SOS button is pressed */
 
 const sendTgLoc = (name,loc,user) =>{
-	bot.telegram.sendMessage("@ourgng", `${createTgMsg(name,loc)}`,Markup.inlineKeyboard([Markup.button.url(`rescue ${name}`,`gngsos.herokuapp.com?rescue=${user}`)]))
+	bot.telegram.sendMessage("@safetyforwomen", `${createTgMsg(name,loc)}`,Markup.inlineKeyboard([Markup.button.url(`rescue ${name}`,`gngsos.herokuapp.com?rescue=${user}`)]))
 }
 
 /* Send Audio files to Telegrm Channel */
 
 const sendAudio = async (filepath) => {
 	const data = fs.readFileSync(filepath)
-	bot.telegram.sendDocument("@ourgng", {
+	bot.telegram.sendDocument("@safetyforwomen", {
 		source: data,
 		filename: 'sosAudio'
 	}).catch(function(error){ console.log(error); })
@@ -355,7 +355,7 @@ const sendAudio = async (filepath) => {
 /* Send Emergency message to telegram channel */
 
 const sendTgMsg = (name,msg,loc,user) =>{
-	bot.telegram.sendMessage("@ourgng", `EMERGENCY MESSAGE\n\nname: ${name}\nmsg: ${msg}\n\n${locFormat(loc)}`,Markup.inlineKeyboard([Markup.button.url(`rescue ${name}`,`gngsos.herokuapp.com?rescue=${user}`)]))
+	bot.telegram.sendMessage("@safetyforwomen", `EMERGENCY MESSAGE\n\nname: ${name}\nmsg: ${msg}\n\n${locFormat(loc)}`,Markup.inlineKeyboard([Markup.button.url(`rescue ${name}`,`gngsos.herokuapp.com?rescue=${user}`)]))
 }
 
 

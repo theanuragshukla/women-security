@@ -47,6 +47,26 @@
 					</div>
 				</div>
 			</div>
+		<!-- Utilities Section -->
+
+			<div  class="section utilities links">
+				<div class="heading">
+					<h1>Report an Image</h1>
+				</div>
+				<nav>
+					<input single accept="image/*" style="display:none" onchange="(()=>{
+					document.getElementById('fileName').innerText=this.files[0].name
+					})()" type="file" name="uploadImg" id="uploadImg"></input>
+					<p id="fileName"></p>
+					<button class="btn" onclick="(()=>{
+						document.getElementById('uploadImg').click()
+						})()">Capture/Select</button>
+
+				<button class="btn" >Upload</button>
+				</nav>
+
+			</div>
+
 
 			<!-- Online Users Section -->
 
