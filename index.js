@@ -32,7 +32,7 @@ const multer = require('multer')
 
 let online={}
 
-const excludedRoutes = ['/static/css', '/', '/let-me-in', '/add-new-user', '/signup', '/static/js']
+const excludedRoutes = ['/static/css', '/', '/let-me-in', '/add-new-user', '/new-user', '/static/js', '/checkDup', '/checkAuth']
 /* middlewares */
 
 app.use(cookieParser());
@@ -67,7 +67,7 @@ app.use( async (req, res, next) => {
 		const authData = await verifyToken(token)
 		if (!authData.result){
 			if(req.method=="GET"){
-				res.redirect(`http://${req.header('host')}/auth/login`)
+				res.redirect(`http://${req.header('host')}/`)
 			} else{
 				res.status(401).json({status:false,msg:"unauthorised access"})
 			}
