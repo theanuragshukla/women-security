@@ -32,7 +32,7 @@ const multer = require('multer')
 
 let online={}
 
-const excludedRoutes = ['/static', '/']
+const excludedRoutes = ['/static/css', '/', '/let-me-in', '/add-new-user', '/signup', '/static/js']
 /* middlewares */
 
 app.use(cookieParser());
@@ -48,7 +48,16 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({ storage: storage })
+if(process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https')
+      res.redirect(`https://${req.header('host')}${req.url}`)
+    else
+      next()
+  })
+}
 
+app.use('/static',express.static(__dirname + "/static"))
 app.use( async (req, res, next) => {
 	const url = req.originalUrl.split("?")[0]
 	if(excludedRoutes.includes(url)){
@@ -71,15 +80,6 @@ app.use( async (req, res, next) => {
 	}}
 )
 
-app.use('/static',express.static(__dirname + "/static"))
-if(process.env.NODE_ENV === 'production') {
-  app.use((req, res, next) => {
-    if (req.header('x-forwarded-proto') !== 'https')
-      res.redirect(`https://${req.header('host')}${req.url}`)
-    else
-      next()
-  })
-}
 app.use(express.json());
 app.use(express.urlencoded({
 	extended: true
