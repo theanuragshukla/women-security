@@ -57,12 +57,17 @@
 					<input single accept="image/*" style="display:none" onchange="(()=>{
 					document.getElementById('fileName').innerText=this.files[0].name
 					})()" type="file" name="uploadImg" id="uploadImg"></input>
-					<p id="fileName"></p>
+					<p id="fileName">Select a file</p>
+<div class="inp">
+		
+					<input id="caption" type="text" placeholder="Enter caption">
+</div>
 					<button class="btn" onclick="(()=>{
+					document.getElementById('fileName').innerText=''
 						document.getElementById('uploadImg').click()
-						})()">Capture/Select</button>
+						})()">Select</button>
 
-				<button class="btn" >Upload</button>
+				<button class="btn" onclick="uploadImg(this)">Upload</button>
 				</nav>
 
 			</div>

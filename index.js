@@ -28,10 +28,48 @@ const saltRounds=10
 const jwt = require('jsonwebtoken')
 const secret = process.env.JWT_SECRET_KEY
 const cookieParser=require('cookie-parser')
+const multer = require('multer')
 
 let online={}
 
+const excludedRoutes = ['/static', '/']
 /* middlewares */
+
+app.use(cookieParser());
+const storage = multer.diskStorage({
+	destination: function (req, file, cb) {
+		cb(null, './uploads/')
+	},
+	filename: function (req, file, cb) {
+				let extArray = file.mimetype.split("/");
+				let extension = extArray[extArray.length - 1];
+				cb(null, file.originalname + '-' + Date.now()+ '-.' +extension)
+	},
+})
+
+const upload = multer({ storage: storage })
+
+app.use( async (req, res, next) => {
+	const url = req.originalUrl.split("?")[0]
+	if(excludedRoutes.includes(url)){
+		next()
+	}else{
+		const token = req.cookies.token
+		const authData = await verifyToken(token)
+		if (!authData.result){
+			if(req.method=="GET"){
+				res.redirect(`http://${req.header('host')}/auth/login`)
+			} else{
+				res.status(401).json({status:false,msg:"unauthorised access"})
+			}
+			return
+		}
+		else{
+			req.usrProf = authData.data
+			next()
+		}
+	}}
+)
 
 app.use('/static',express.static(__dirname + "/static"))
 if(process.env.NODE_ENV === 'production') {
@@ -46,7 +84,6 @@ app.use(express.json());
 app.use(express.urlencoded({
 	extended: true
 }))
-app.use(cookieParser());
 
 /* Express server stuff*/
 
@@ -164,6 +201,23 @@ app.post('/sosMsg',async (req,res)=>{
 	//	sendAudio()
 	res.status(200).json({status:true})
 })
+
+
+/* Uplaod Image endpoint */
+
+app.post('/upload-image',upload.single('img'),async (req,res)=>{
+	const fname = req.file.filename
+	let {caption, loc } = req.body
+	const status = await sendTgImg(fname, req.usrProf.username, caption, JSON.parse(loc))
+	if(status){
+		res.json({status:true})
+
+	}else{
+		res.json({status:false})
+	}
+})
+
+
 
 /* Logout Endpoint */
 
@@ -338,7 +392,7 @@ io.on('connection',(socket)=>{
 /* Send Location when Red SOS button is pressed */
 
 const sendTgLoc = (name,loc,user) =>{
-	bot.telegram.sendMessage("@safetyforwomen", `${createTgMsg(name,loc)}`,Markup.inlineKeyboard([Markup.button.url(`rescue ${name}`,`gngsos.herokuapp.com?rescue=${user}`)]))
+	bot.telegram.sendMessage("@safetyforwomen", `${createTgMsg(name,loc)}`,Markup.inlineKeyboard([Markup.button.url(`rescue ${name}`,`safety-for-women.herokuapp.com?rescue=${user}`)]))
 }
 
 /* Send Audio files to Telegrm Channel */
@@ -355,9 +409,19 @@ const sendAudio = async (filepath) => {
 /* Send Emergency message to telegram channel */
 
 const sendTgMsg = (name,msg,loc,user) =>{
-	bot.telegram.sendMessage("@safetyforwomen", `EMERGENCY MESSAGE\n\nname: ${name}\nmsg: ${msg}\n\n${locFormat(loc)}`,Markup.inlineKeyboard([Markup.button.url(`rescue ${name}`,`gngsos.herokuapp.com?rescue=${user}`)]))
+	bot.telegram.sendMessage("@safetyforwomen", `EMERGENCY MESSAGE\n\nname: ${name}\nmsg: ${msg}\n\n${locFormat(loc)}`,Markup.inlineKeyboard([Markup.button.url(`rescue ${name}`,`safety-for-women.herokuapp.com?rescue=${user}`)]))
 }
 
+const sendTgImg =async (name, user, caption, loc) => {
+	try{
+		const img = 	await bot.telegram.sendPhoto("@safetyforwomen", { source: `./uploads/${name}` }, {caption:`Image uploaded by user: ${user}\nCaption by user: ${caption}`})
+		return true
+	}
+	catch(e){
+		console.log(e)
+		return false
+	}
+}
 
 /* utils */
 
@@ -398,6 +462,7 @@ const createTgMsg = (name,loc) => {
 	return `Hey Guys, ${name} here. I think I'm in a little trouble.\n\n${locFormat(loc)}`
 
 }
+//const resolveToken = 
 
 /* Format location Object in a nice format */
 
@@ -450,7 +515,7 @@ I thing Maybe I'm in some danger. Please Find me ASAP.
 </div>
 <div class="section" style="width:100%;margin-top:40px" >
 <h2 style="font-size:1.8rem;margin:8px;text-align:center;" >Rescue</h2>
-<div style="font-size:1.3rem;font-weight:300;margin:8px;text-align:center;"><a style="cursor:pointer; color:red; text-decoration:none;padding:5px;" href="https://gngsos.herokuapp.com?rescue=${user}" >Rescue ${name}</a></div>
+<div style="font-size:1.3rem;font-weight:300;margin:8px;text-align:center;"><a style="cursor:pointer; color:red; text-decoration:none;padding:5px;" href="https://safety-for-women.herokuapp.com?rescue=${user}" >Rescue ${name}</a></div>
 </div>
 </div>
 </table>

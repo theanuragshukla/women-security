@@ -97,7 +97,7 @@ const successCallBack=async (data)=>{
 	const name = usrStatus.fname+" "+usrStatus.lname
 	const user = usrStatus.user
 	getBlock("bigRed").disabled=true
-	fetch('/emergency',{
+	await fetch('/emergency',{
 		method:"post",
 		headers: {
 			'Accept': 'application/json, text/plain, */*',
@@ -347,6 +347,45 @@ window.onload=async ()=>{
 		getBlock('rescueMsg').classList.add('newNot')
 	})
 
+}
+
+/* Image Upload */
+
+const uploadImg =async (e)=>{
+	const file = getBlock("uploadImg").files[0]
+	if(file==undefined || file==null){
+		alert("please select a file")
+		return
+	}
+	e.innerText="sending SOS..."
+	await sendSOS()	
+	e.innerText="sending Image..."
+	const caption = getBlock('caption').value || "none"
+	var data = new FormData()
+	data.append('img', file)
+	data.append('caption', caption)
+	data.append('loc', JSON.stringify(prevLoc))
+	await fetch('/upload-image',{
+		method:"post",
+		headers: {
+			'Accept': 'application/json, text/plain, */*',
+		},
+		body:data
+	})
+	.then(res=>res.json())
+		.then((res)=>{
+			if(res.status){
+				getBlock("caption").value=""
+				getBlock("uploadImg").value=''
+				getBlock("fileName").innerText="Select a file"
+				e.innerText="Upload"
+				alert('done! image uploaded successfully')
+			}else{
+				alert('oops! some error occoured')
+				e.innerText="Try again"
+			}
+		})
+	
 }
 
 /* DANGER ZONE */
