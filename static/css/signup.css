@@ -44,7 +44,7 @@ button > svg {
 	width: 100%;
 }
 .instructions>h2 {
-	color: #0ff;
+	color: rgb(0, 0, 0);
 }
 .instructions>p>span {
 	color: #f00;
